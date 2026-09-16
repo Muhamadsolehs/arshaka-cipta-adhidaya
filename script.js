@@ -59,3 +59,73 @@ addEventListener('keydown', e => {
   if (e.key === 'ArrowLeft' && currentGallery.length) { currentIndex = (currentIndex - 1 + currentGallery.length) % currentGallery.length; renderLightbox() }
   if (e.key === 'ArrowRight' && currentGallery.length) { currentIndex = (currentIndex + 1) % currentGallery.length; renderLightbox() }
 });
+
+/* =========================================================
+   FIELD INFORMATION MODAL
+   ========================================================= */
+
+(function () {
+
+  const fieldItems = document.querySelectorAll('.discipline-item');
+  const fieldModal = document.querySelector('.field-modal');
+
+  if (!fieldItems.length || !fieldModal) return;
+
+  const modalTitle = fieldModal.querySelector('#field-modal-title');
+  const modalNumber = fieldModal.querySelector('.field-modal-number');
+  const modalDescription = fieldModal.querySelector('.field-modal-description');
+  const modalClose = fieldModal.querySelector('.field-modal-close');
+  const modalBackdrop = fieldModal.querySelector('.field-modal-backdrop');
+
+  function openFieldModal(item) {
+
+    const field = item.dataset.field;
+    const number = item.dataset.number;
+    const description = item.dataset.description;
+
+    modalTitle.textContent = field;
+    modalNumber.textContent = number;
+    modalDescription.textContent = description;
+
+    fieldModal.classList.add('active');
+    fieldModal.setAttribute('aria-hidden', 'false');
+
+    document.body.style.overflow = 'hidden';
+
+    setTimeout(() => {
+      modalClose.focus();
+    }, 100);
+  }
+
+  function closeFieldModal() {
+
+    fieldModal.classList.remove('active');
+    fieldModal.setAttribute('aria-hidden', 'true');
+
+    document.body.style.overflow = '';
+  }
+
+  fieldItems.forEach(item => {
+
+    item.addEventListener('click', function () {
+      openFieldModal(this);
+    });
+
+  });
+
+  modalClose.addEventListener('click', closeFieldModal);
+
+  modalBackdrop.addEventListener('click', closeFieldModal);
+
+  document.addEventListener('keydown', function (event) {
+
+    if (event.key === 'Escape' &&
+      fieldModal.classList.contains('active')) {
+
+      closeFieldModal();
+
+    }
+
+  });
+
+})();

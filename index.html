@@ -46,7 +46,7 @@
       <!-- </a> -->
       <nav class="nav" aria-label="Navigasi utama">
         <a href="#about">Tentang</a>
-        <a href="#vision">Visi & Misi</a>
+        <!-- <a href="#vision">Visi & Misi</a> -->
         <a href="#services">Layanan</a>
         <a href="#projects">Proyek</a>
         <a href="#contact">Kontak</a>
@@ -169,11 +169,42 @@
               <h3>Bidang Usaha</h3>
             </div>
             <div class="discipline-grid">
-              <div><b>01</b><strong>Sipil</strong></div>
-              <div><b>02</b><strong>Arsitektur</strong></div>
-              <div><b>03</b><strong>Planologi</strong></div>
-              <div><b>04</b><strong>Elektrikal</strong></div>
-              <div><b>05</b><strong>Mekanikal</strong></div>
+
+              <button class="discipline-item" type="button" data-field="Sipil" data-number="01"
+                data-description="Bidang usaha sipil yang mendukung kebutuhan pekerjaan konstruksi dan infrastruktur.">
+                <b>01</b>
+                <strong>Sipil</strong>
+                <span>↗</span>
+              </button>
+
+              <button class="discipline-item" type="button" data-field="Arsitektur" data-number="02"
+                data-description="Bidang usaha arsitektur yang berkaitan dengan kebutuhan perancangan dan pekerjaan bangunan.">
+                <b>02</b>
+                <strong>Arsitektur</strong>
+                <span>↗</span>
+              </button>
+
+              <button class="discipline-item" type="button" data-field="Planologi" data-number="03"
+                data-description="Bidang usaha planologi yang berkaitan dengan perencanaan dan penataan dalam kebutuhan pembangunan.">
+                <b>03</b>
+                <strong>Planologi</strong>
+                <span>↗</span>
+              </button>
+
+              <button class="discipline-item" type="button" data-field="Elektrikal" data-number="04"
+                data-description="Bidang usaha elektrikal yang mendukung kebutuhan pekerjaan dan sistem kelistrikan dalam konstruksi.">
+                <b>04</b>
+                <strong>Elektrikal</strong>
+                <span>↗</span>
+              </button>
+
+              <button class="discipline-item" type="button" data-field="Mekanikal" data-number="05"
+                data-description="Bidang usaha mekanikal yang mendukung kebutuhan pekerjaan dan sistem mekanikal dalam konstruksi.">
+                <b>05</b>
+                <strong>Mekanikal</strong>
+                <span>↗</span>
+              </button>
+
             </div>
           </div>
           <div class="service-panel dark reveal-up">
@@ -349,6 +380,42 @@
           type="button" aria-label="Foto berikutnya">→</button></div>
       <div class="lightbox-thumbs"></div>
     </div>
+  </div>
+  <!-- FIELD INFORMATION MODAL -->
+  <div class="field-modal" aria-hidden="true">
+
+    <div class="field-modal-backdrop"></div>
+
+    <div class="field-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="field-modal-title">
+
+      <button class="field-modal-close" type="button" aria-label="Tutup informasi">
+        ×
+      </button>
+
+      <div class="field-modal-content">
+
+        <span class="field-modal-kicker">
+          BIDANG USAHA
+        </span>
+
+        <span class="field-modal-number">
+          01
+        </span>
+
+        <h2 id="field-modal-title">
+          Sipil
+        </h2>
+
+        <div class="field-modal-line"></div>
+
+        <p class="field-modal-description">
+          Bidang usaha sipil yang mendukung kebutuhan pekerjaan konstruksi dan infrastruktur.
+        </p>
+
+      </div>
+
+    </div>
+
   </div>
   <script src="script.js"></script>
 </body>

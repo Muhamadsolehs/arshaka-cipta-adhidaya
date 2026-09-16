@@ -1805,3 +1805,246 @@ visibility .65s
         transform: none
     }
 }
+
+/* =========================================================
+   FIELD INFORMATION MODAL
+   ========================================================= */
+
+.field-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+    transition:
+        opacity 0.35s ease,
+        visibility 0.35s ease;
+}
+
+.field-modal.active {
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.field-modal-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 25, 40, 0.72);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.field-modal-dialog {
+    position: relative;
+    width: min(620px, 100%);
+    background: #ffffff;
+    padding: 52px;
+    transform: translateY(30px) scale(0.96);
+    opacity: 0;
+    transition:
+        transform 0.45s cubic-bezier(.22, 1, .36, 1),
+        opacity 0.35s ease;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.25);
+}
+
+.field-modal.active .field-modal-dialog {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+}
+
+.field-modal-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+
+    width: 42px;
+    height: 42px;
+
+    border: 1px solid rgba(0, 48, 73, 0.15);
+    background: transparent;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 26px;
+    line-height: 1;
+    color: #003049;
+
+    cursor: pointer;
+
+    transition:
+        background 0.25s ease,
+        color 0.25s ease,
+        transform 0.25s ease;
+}
+
+.field-modal-close:hover {
+    background: #003049;
+    color: #ffffff;
+    transform: rotate(90deg);
+}
+
+.field-modal-content {
+    padding-right: 30px;
+}
+
+.field-modal-kicker {
+    display: block;
+    margin-bottom: 28px;
+
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.18em;
+    color: #f58020;
+}
+
+.field-modal-number {
+    display: block;
+    margin-bottom: 8px;
+
+    font-size: 13px;
+    font-weight: 700;
+    color: #999999;
+}
+
+.field-modal-content h2 {
+    margin: 0;
+
+    font-size: clamp(38px, 6vw, 64px);
+    line-height: 0.95;
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    color: #003049;
+}
+
+.field-modal-line {
+    width: 60px;
+    height: 3px;
+
+    margin: 28px 0;
+
+    background: #f58020;
+}
+
+.field-modal-description {
+    max-width: 480px;
+    margin: 0;
+
+    font-size: 16px;
+    line-height: 1.8;
+    color: #555555;
+}
+
+
+/* CLICKABLE FIELD ITEMS */
+
+.discipline-item {
+    position: relative;
+
+    width: 100%;
+    border: 0;
+    border-bottom: 1px solid rgba(0, 48, 73, 0.12);
+
+    background: transparent;
+
+    display: grid;
+    grid-template-columns: 36px 1fr auto;
+    align-items: center;
+
+    padding: 28px 0;
+
+    text-align: left;
+    font-family: inherit;
+
+    cursor: pointer;
+
+    transition:
+        padding 0.3s ease,
+        background 0.3s ease;
+}
+
+.discipline-item b {
+    font-size: 11px;
+    font-weight: 600;
+    color: #999999;
+}
+
+.discipline-item strong {
+    font-size: 21px;
+    font-weight: 700;
+    color: #111111;
+
+    transition:
+        color 0.3s ease,
+        transform 0.3s ease;
+}
+
+.discipline-item span {
+    font-size: 22px;
+    color: #f58020;
+
+    opacity: 0;
+
+    transform: translateX(-8px);
+
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease;
+}
+
+.discipline-item:hover {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.discipline-item:hover strong {
+    color: #003049;
+    transform: translateX(5px);
+}
+
+.discipline-item:hover span {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+
+    .field-modal {
+        padding: 16px;
+    }
+
+    .field-modal-dialog {
+        padding: 40px 28px;
+    }
+
+    .field-modal-content {
+        padding-right: 10px;
+    }
+
+    .field-modal-content h2 {
+        font-size: 42px;
+    }
+
+    .field-modal-description {
+        font-size: 15px;
+    }
+
+    .discipline-item {
+        padding: 22px 0;
+    }
+
+    .discipline-item strong {
+        font-size: 18px;
+    }
+
+}
