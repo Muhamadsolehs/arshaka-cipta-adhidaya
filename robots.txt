@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://arshaka-cipta-adhidaya.vercel.app/sitemap.xml
